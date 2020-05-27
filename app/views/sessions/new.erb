@@ -1,0 +1,6 @@
+<h1>Welcome to Hobbiest!</h1>
+<h2>Please log in below.</h2>
+<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+  <input name=username>
+  <input type=submit value='login'>
+<% end %>
