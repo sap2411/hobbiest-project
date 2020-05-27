@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_213812) do
+ActiveRecord::Schema.define(version: 2020_05_27_163230) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "category_hobbies", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "hobby_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_category_hobbies_on_category_id"
+    t.index ["hobby_id"], name: "index_category_hobbies_on_hobby_id"
+  end
 
   create_table "hobbies", force: :cascade do |t|
     t.string "name"
@@ -48,6 +63,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_213812) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "category_hobbies", "categories"
+  add_foreign_key "category_hobbies", "hobbies"
   add_foreign_key "hobby_materials", "hobbies"
   add_foreign_key "hobby_materials", "materials"
   add_foreign_key "user_hobbies", "hobbies"
