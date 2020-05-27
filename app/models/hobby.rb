@@ -3,6 +3,8 @@ class Hobby < ApplicationRecord
     has_many :users, through: :user_hobbies
     has_many :hobby_materials
     has_many :materials, through: :hobby_materials
+    has_many :category_hobbies
+    has_many :categories, through: :category_hobbies
     accepts_nested_attributes_for :materials
 
     # This was to try making an instance variable which would be available in the params hash,
