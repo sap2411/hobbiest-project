@@ -2,7 +2,7 @@
 <h2>Please log in below, or create an <%= link_to "account", new_user_path %></h2>
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
   Username:<input name=username><br>
-  Password:<input name=password>
+  Password: <input type="password" name="password">
   <input type=submit value='login'>
 <% end %>
 
