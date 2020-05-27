@@ -1,5 +1,9 @@
 <h1>Hey <%= @user.username %>!</h1>
 <h2>Here are your hobbies:</h2>
-<h3><% @user.hobbies.each do |h| %>
-        <%= link_to h.name, h %><br><br>
+<h3><% if @user.hobbies.count > 0 %>
+        <% @user.hobbies.each do |h| %>
+            <%= link_to h.name, h %><br><br>
+        <% end %>
+    <% else %>
+        You haven't added any hobbies to your profile yet!
     <% end %></h3>
