@@ -1,4 +1,5 @@
 <h1><%= @hobby.name %></h1>
+<h2>Category: <%= @hobby.category %></h2><br>
 <h2>Materials Needed:<br><br><%  @hobby.materials.each do |m| %>
         <%= m.name  %>
         can be bought <%= link_to "here", m.url %><br><br>
