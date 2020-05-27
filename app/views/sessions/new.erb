@@ -1,6 +1,11 @@
 <h1>Welcome to Hobbiest!</h1>
-<h2>Please log in below.</h2>
+<h2>Please log in below, or create an <%= link_to "account", new_user_path %></h2>
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-  <input name=username>
+  Username:<input name=username><br>
+  Password:<input name=password>
   <input type=submit value='login'>
+<% end %>
+
+<% if flash[:errors] %>
+  <%= flash[:errors] %>
 <% end %>

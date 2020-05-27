@@ -1,5 +1,5 @@
 class HobbiesController < ApplicationController
-    before_action :require_login
+    # before_action :require_login
 
     # So far I can only get updates to this array to persist through one reload of new.erb DK
     @@categories = ["Test One", "Test Two", "Test Three"]

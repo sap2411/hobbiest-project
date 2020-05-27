@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     has_many :user_hobbies
     has_many :hobbies, through: :user_hobbies
+    has_secure_password
+    validates :username, uniqueness: true
 
     def simplest_hobby
         self.sorted.first

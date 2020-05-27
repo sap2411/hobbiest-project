@@ -1,6 +1,6 @@
 <h1><%= @hobby.name %></h1>
 <h2>Category: <% @hobby.categories.each do |c| %> 
-<%= link_to c.name c %>,  
+<%= link_to c.name, c %>,  
 <% end %></h2>
 <h2>Materials Needed:<br><ul><%  @hobby.materials.each do |m| %>
         <li><%= m.name  %></li>
