@@ -104,6 +104,12 @@ Material.create(name: "Measuring Tape", url: "https://www.amazon.com/s?k=measuri
 Material.create(name: "Pins and Pincushion", url: "https://www.amazon.com/s?k=pins+and+pushcushion&ref=nb_sb_noss_2")
 Material.create(name: "Sewing Machine Needles", url: "https://www.amazon.com/s?k=sewing+machine+needles&ref=nb_sb_noss_2")
 Material.create(name: "Thimble", url: "https://www.amazon.com/s?k=thimble&ref=nb_sb_noss_2")
+HobbyMaterial.create(material_id: 24, hobby_id: 7)
+HobbyMaterial.create(material_id: 25, hobby_id: 7)
+HobbyMaterial.create(material_id: 26, hobby_id: 7)
+HobbyMaterial.create(material_id: 27, hobby_id: 7)
+HobbyMaterial.create(material_id: 28, hobby_id: 7)
+
 CategoryHobby.create(category_id: 3, hobby_id: 7)
 
 Hobby.create(name: "DJing", description: "Make your favorite songs even better, share your skills for everyone to hear!", created_by: "Admin")
@@ -111,6 +117,11 @@ Material.create(name: "DJ Turntables", url: "https://www.amazon.com/s?k=dj+turnt
 Material.create(name: "DJ Cartridges", url: "https://www.amazon.com/s?k=dj+cartridges&ref=nb_sb_noss_2")
 Material.create(name: "DJ Mixer", url: "https://www.amazon.com/s?k=dj+Mixer&ref=nb_sb_noss_2")
 Material.create(name: "DJ Headphones", url: "https://www.amazon.com/s?k=dj+Headphones&ref=nb_sb_noss_2")
+HobbyMaterial.create(material_id: 29, hobby_id: 8)
+HobbyMaterial.create(material_id: 30, hobby_id: 8)
+HobbyMaterial.create(material_id: 31, hobby_id: 8)
+HobbyMaterial.create(material_id: 32, hobby_id: 8)
+
 CategoryHobby.create(category_id: 2, hobby_id: 8)
 
 
