@@ -31,7 +31,6 @@ class HobbiesController < ApplicationController
         end
         @hobby = Hobby.create(hobby_params)
         @hobby.materials.create(name: params[:materials][:name], url:"https://www.amazon.com/s?k=#{params[:materials][:name]}&ref=nb_sb_noss_2")
-        byebug
         redirect_to @hobby
     end
 
