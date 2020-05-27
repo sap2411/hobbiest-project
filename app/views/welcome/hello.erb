@@ -1,5 +1,6 @@
 <h1>Hey there, <%= session[:username] %>!</h1>
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
   <input type=submit value='logout'>
-  branch test
 <% end %>
+
+<h2><%= link_to "Look For New Hobbies", '/hobbies' %></h2>
