@@ -10,6 +10,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= yield %><br>
+    <%= link_to "All Hobbies", hobbies_path%><br>
+    <%= link_to "My Profile", User.find_by(username: session[:username]) %><br><br>
+    <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+      <input type=submit value='logout'>
+    <% end %>
   </body>
 </html>
