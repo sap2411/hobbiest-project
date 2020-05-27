@@ -10,10 +10,16 @@
   </head>
 
   <body>
+  <% if @logged_in %>
+  <%= @logged_in_user.username %>
+  <% else %>
+  <%= link_to "Log in", login_path%>
+  <%= link_to "Create Account", new_user_path%>
+  <% end %>
     <%= yield %><br>
     <%= link_to "All Hobbies", hobbies_path%><br>
     <%= link_to "My Profile", User.find_by(username: session[:username]) %><br><br>
-    <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+    <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'get'}) do %>
       <input type=submit value='logout'>
     <% end %>
   </body>
