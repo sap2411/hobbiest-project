@@ -29,17 +29,23 @@ class HobbiesController < ApplicationController
     end
 
     def create
-        @new_materials = Array.new
+        # This creates the data for created_by attribute
         params[:hobby][:created_by] = session[:username]
-        byebug
+
+
         @hobby = Hobby.create(hobby_params)
-        # @hobby.materials.create(name: params[:materials][:name], url:"https://www.amazon.com/s?k=#{params[:materials][:name]}&ref=nb_sb_noss_2")
+
+        # Check for presence of materials_ids from checkboxes and associates them with new hobby object
+        if params[:hobby][:material_ids]
+            @hobby.add_existing_materials(params[:hobby][:material_ids])
+        end
+        
         redirect_to @hobby
     end
 
     private
 
     def hobby_params
-        params.require(:hobby).permit(:name, :description, :created_by, materials_attributes:[:name, :url])
+        params.require(:hobby).permit(:name, :description, :created_by, :material_ids, materials_attributes:[:name, :url])
     end
 end

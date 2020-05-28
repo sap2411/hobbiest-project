@@ -5,13 +5,18 @@
 <%= f.label :name %><br>
 <%= f.text_field :name %><br><br>
 
-<%= f.label :category %><br>
-<%= f.collection_select :category, @categories, :id, :name, include_blank: false %><br><br>
+<%= f.label :category_ids %><br>
+<%= f.collection_select :category_ids, @categories, :id, :name, include_blank: false %><br><br>
 
 <%= f.label :description %><br>
 <%= f.text_area :description %><br><br>
 
-<%= f.collection_check_boxes :material_ids, @materials, :id, :name, include_blank: false %><br><br>
+<%= f.collection_check_boxes :material_ids, @materials, :id, :name, include_hidden: false do |b|%><br><br>
+    <div class="form-check form-check-inline">
+        <%= b.label %>&nbsp<%= b.check_box %>
+    </div>
+<% end %>
+
     <%= f.fields_for :materials do |ff|%>
         <%= ff.label :name %><br>
         <%= ff.text_field :name %><br><br>
