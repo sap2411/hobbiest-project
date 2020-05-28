@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :materials
   resources :hobbies
   resources :users
+  resources :hobby_materials, only: [:destroy]
   root 'welcome#hello'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

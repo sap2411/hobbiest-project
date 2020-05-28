@@ -14,7 +14,9 @@ class Hobby < ApplicationRecord
         while @iterator < attr.values.length do
             if attr.values[@iterator]["name"].present?
             @material = Material.find_or_create_by(name: attr.values[@iterator]["name"], url: "https://www.amazon.com/s?k=#{attr.values[@iterator]["name"]}&ref=nb_sb_noss_2")
-            self.materials << @material
+                if !self.materials.find_by(name: attr.values[@iterator]["name"])
+                self.materials << @material
+                end
             end
             @iterator += 1
         end

@@ -19,7 +19,7 @@ class HobbiesController < ApplicationController
         @categories = Category.all
         @hobby = Hobby.new
         @materials = Material.all
-        3.times do
+        5.times do
             @hobby.materials.build
         end
     end
@@ -53,11 +53,12 @@ class HobbiesController < ApplicationController
     #     #     @hobby.add_existing_materials(params[:hobby][:material_ids])
     #     # end
         
+
     #     redirect_to @hobby
     # end
     private
 
     def hobby_params
-        params.require(:hobby).permit(:name, :description, :created_by, :material_ids, materials_attributes:[:name, :url])
+        params.require(:hobby).permit(:name, :description, :created_by, :category_ids, :material_ids, materials_attributes:[:name, :url])
     end
 end
