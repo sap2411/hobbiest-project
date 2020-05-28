@@ -7,14 +7,21 @@ class Hobby < ApplicationRecord
     has_many :categories, through: :category_hobbies
     accepts_nested_attributes_for :materials
 
+    def materials_attributes=(attr)
+        if attr.values[0]["name"].present?
+          @material = Material.find_or_create_by(name: attr.values[0]["name"])
+          self.materials << @material
+        end
+      end
+
     # This was to try making an instance variable which would be available in the params hash,
     # but not persisted to the database.  This array was to contain an array of material names
     # so that I could iterate through it and create new materials during creation of a new hobby
     # after_initialize :new_name_array
 
-    def new_name_array
-        @name_array = Array.new
-    end
+    # def new_name_array
+    #     @name_array = Array.new
+    # end
 
     def self.sorted_by_materials
         self.all.sort_by {|hobby| hobby.materials.count}
