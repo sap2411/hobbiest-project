@@ -70,6 +70,6 @@ class HobbiesController < ApplicationController
     private
 
     def hobby_params
-        params.require(:hobby).permit(:name, :description, :created_by, :material_ids, materials_attributes:[:name, :url])
+        params.require(:hobby).permit(:name, :description, :created_by, :category_ids, :material_ids, materials_attributes:[:name, :url])
     end
 end
