@@ -23,7 +23,7 @@ class HobbiesController < ApplicationController
         @categories = Category.all
         @hobby = Hobby.new
         @materials = Material.all
-        3.times do
+        5.times do
             @hobby.materials.build
         end
     end
@@ -60,6 +60,13 @@ class HobbiesController < ApplicationController
         
         redirect_to @hobby
     end
+
+    def destroy
+        @hobby = Hobby.find(:id)
+        @hobby.destroy
+    end
+
+
     private
 
     def hobby_params

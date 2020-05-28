@@ -1,1 +1,38 @@
 <h1>Edit <%= @hobby.name %></h1>
+
+
+<%= form_for @hobby do |f| %>
+
+<%= f.label :name %><br>
+<%= f.text_field :name %><br><br>
+
+<%= f.label :category_ids %><br>
+<%= f.collection_select :category_ids, @categories, :id, :name, include_blank: false %><br><br>
+
+<%= f.label :description %><br>
+<%= f.text_area :description %><br><br>
+
+<!-- <%= f.collection_check_boxes :material_ids, @materials, :id, :name, include_hidden: false do |b|%><br><br>
+    <div class="form-check form-check-inline">
+        <%= b.label %>&nbsp<%= b.check_box %>
+    </div>
+<% end %> -->
+
+    <%= f.fields_for :materials do |ff|%>
+        <%= ff.label :name %><br>
+        <%= ff.text_field :name %><br><br>
+    <% end %>
+
+<%= f.submit %>
+
+    <h2>Materials Needed:<br><ul><%  @hobby.materials.each do |m| %>
+            <li><%= m.name  %></li>
+            Available for purchase <%= link_to "here", m.url %><br><br>
+
+            <%= form_tag ({controller: 'hobby_materials', action: 'destroy', method: 'get'}) do %>
+                    <%= button_to "Delete Material", hobby_material_path(m.hobby_materials.find_by(hobby_id: @hobby.id)), method: :delete %>
+            <% end %>
+        <% end %></ul>
+    </h2>
+
+<% end %>
