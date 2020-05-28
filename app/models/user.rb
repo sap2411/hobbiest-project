@@ -8,6 +8,10 @@ class User < ApplicationRecord
         self.sorted.first.name
     end
 
+    def self.not_admins
+        all.select {|u| u.admin == false}
+    end
+
     def most_complex_hobbie
         self.sorted.last.name
     end

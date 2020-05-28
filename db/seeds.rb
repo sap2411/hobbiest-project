@@ -19,8 +19,16 @@ Category.create(name: "Food and Beverage")
 
 User.create(username: "Steven", password: "password", password_confirmation: "password", admin: true)
 User.create(username: "David", password: "password", password_confirmation: "password", admin: true)
+User.create(username: "John", password: "asd", password_confirmation: "asd", admin: false)
+User.create(username: "Soundarya", password: "asd", password_confirmation: "asd", admin: false)
+User.create(username: "BirdWatchingLover9000", password: "asd", password_confirmation: "asd", admin: false)
+User.create(username: "NotARealAdmin", password: "asd", password_confirmation: "asd", admin: false)
+User.create(username: "HobbyBoy1234", password: "asd", password_confirmation: "asd", admin: false)
 
-fishing = Hobby.create(name: "Fishing", description: "Year round fun in practially any climate! All you need are these tools and a good fishing spot!", created_by: "Admin")
+
+
+
+fishing = Hobby.create(name: "Fishing", description: "Year round fun in practially any climate! All you need are these tools and a good fishing spot!", created_by: "Steven")
 
 fishing_rod = Material.create(name: "Fishing Rod", url: "https://www.amazon.com/s?k=fishing+rod&ref=nb_sb_noss_2")
 tackle_box = Material.create(name: "Tackle Box", url: "https://www.amazon.com/s?k=tackle+box&ref=nb_sb_noss_2")
@@ -33,7 +41,7 @@ HobbyMaterial.create(material_id: 3, hobby_id: 1)
 HobbyMaterial.create(material_id: 4, hobby_id: 1)
 
 
-bird_watching = Hobby.create(name: "Bird Watching", description: "The best and most humane way to connect with wildlife in your own community!", created_by: "Admin")
+bird_watching = Hobby.create(name: "Bird Watching", description: "The best and most humane way to connect with wildlife in your own community!", created_by: "BirdWatchingLover9000")
 
 binoculars = Material.create(name: "Binoculars", url: "https://www.amazon.com/s?k=binoculars&ref=nb_sb_noss_2")
 bird_house = Material.create(name: "Bird House", url: "https://www.amazon.com/s?k=bird+house&ref=nb_sb_noss_2")
@@ -44,7 +52,7 @@ HobbyMaterial.create(material_id: 6, hobby_id: 2)
 HobbyMaterial.create(material_id: 7, hobby_id: 2)
 
 
-electric_guitar = Hobby.create(name: "Electric Guitar", description: "An easy and relatively cheap instrument to start learning. You can even play exclusively through headphones!", created_by: "Admin")
+electric_guitar = Hobby.create(name: "Electric Guitar", description: "An easy and relatively cheap instrument to start learning. You can even play exclusively through headphones!", created_by: "Steven")
 
 Material.create(name: "Electric Guitar", url: "https://www.amazon.com/s?k=electric+guitar&ref=nb_sb_noss_2")
 Material.create(name: "Guitar Amp", url: "https://www.amazon.com/s?k=guitar+amp&ref=nb_sb_noss_2")
@@ -86,7 +94,7 @@ HobbyMaterial.create(material_id: 20, hobby_id: 5)
 HobbyMaterial.create(material_id: 21, hobby_id: 5)
 HobbyMaterial.create(material_id: 22, hobby_id: 5)
 
-brewing_beer = Hobby.create(name: "Beer Brewing", description: "Why pay too much money for OK beer when you can make it yourself! The best part about this hobby is it always ends with a drink!", created_by: "Admin")
+brewing_beer = Hobby.create(name: "Beer Brewing", description: "Why pay too much money for OK beer when you can make it yourself! The best part about this hobby is it always ends with a drink!", created_by: "NotARealAdmin")
 
 Material.create(name: "Beer Brewing Kit", url: "https://www.amazon.com/s?k=beer+brewing+kit&ref=nb_sb_noss_2")
 
