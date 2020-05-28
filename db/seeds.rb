@@ -35,7 +35,7 @@ bird_watching = Hobby.create(name: "Bird Watching", description: "The best and m
 
 binoculars = Material.create(name: "Binoculars", url: "https://www.amazon.com/s?k=binoculars&ref=nb_sb_noss_2")
 bird_house = Material.create(name: "Bird House", url: "https://www.amazon.com/s?k=bird+house&ref=nb_sb_noss_2")
-bird_feed = Material.create(name: "bird_feed", url: "https://www.amazon.com/s?k=bird+feed&ref=nb_sb_noss_2")
+bird_feed = Material.create(name: "Bird Feed", url: "https://www.amazon.com/s?k=bird+feed&ref=nb_sb_noss_2")
 
 HobbyMaterial.create(material_id: 5, hobby_id: 2)
 HobbyMaterial.create(material_id: 6, hobby_id: 2)

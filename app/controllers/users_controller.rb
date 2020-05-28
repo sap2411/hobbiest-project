@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     skip_before_action :fetch_user, only: [:new, :create]
     def show
         @user = User.find_by(username: session[:username])
+        @created_hobbies = Hobby.user_created(@user)
     end
 
     def new

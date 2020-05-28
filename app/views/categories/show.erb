@@ -1,5 +1,5 @@
 <h1>Category: <%= @category.name %></h1>
-<h2>Hobbies:</h2>
+<h2>Hobbies:<br>
 <ul><% @category.hobbies.each do |h| %>
         <li><%= link_to h.name, h %></li>
-<% end %></ul>
+<% end %></ul></h2>

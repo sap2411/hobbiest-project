@@ -1,5 +1,6 @@
 
     <h1><%= @hobby.name %></h1>
+    <h2><%= @hobby.description %>
     <h2>Category: <% @hobby.categories.each do |c| %> 
     <%= link_to c.name, c %>,  
     <% end %></h2>
@@ -8,6 +9,11 @@
             Available for purchase <%= link_to "here", m.url %><br><br>
         <% end %></ul>
     </h2>
+    <% if @hobby.created_by && @hobby.created_by != "Admin"  %>
+        <h4>Contributed by: <%= @hobby.created_by %></h4>
+    <% end  %>
 
-
+    <% if session[:username] == @hobby.created_by || session[:admin] %>
+        <%= button_to "Edit Hobby", edit_hobby_path(@hobby), method: :get %>
+    <% end %>
     <%= button_to "Save Hobby", hobby_path(@hobby), method: :patch %>

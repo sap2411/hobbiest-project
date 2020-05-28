@@ -15,8 +15,8 @@ class SessionsController < ApplicationController
     # end
 
     def create
-      @user = User.find_by(username: params[:username])
-      if !@user || !@user.authenticate(params[:password])
+        @user = User.find_by(username: params[:username])
+        if !@user || !@user.authenticate(params[:password])
             flash[:errors] = "We dont have records of that username or password."
             redirect_to login_path
         else

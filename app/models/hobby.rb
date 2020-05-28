@@ -28,6 +28,10 @@ class Hobby < ApplicationRecord
             end
         end
     end
+
+    def self.user_created(user)
+        self.all.select {|h| h.created_by == user.username}
+    end
     # This was to try making an instance variable which would be available in the params hash,
     # but not persisted to the database.  This array was to contain an array of material names
     # so that I could iterate through it and create new materials during creation of a new hobby
