@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HobbiestProject</title>
+    <title>HobbyistProject</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,15 +10,39 @@
   </head>
 
   <body>
-  <% if @logged_in %>
-  <%= @logged_in_user.username %>
-  <% else %>
-  <%= link_to "Log in", login_path%>
-  <%= link_to "Create Account", new_user_path%>
-  <% end %>
+
+ <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">hobbyist</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/hobbies">All Hobbies<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="users/<%= User.find_by(username: session[:username]).id %>">My Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Placeholder</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <% if @logged_in %>
+          <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'get'}) do %>
+      <input type=submit value="Sign Out <%= session[:username] %>"%>
+    <% end %>
+      <% else %>
+      <%= link_to "Log in", login_path%>
+      <%= link_to "Create Account", new_user_path%>
+      <% end %> 
+    </span>
+  </div>
+</nav>
+
+
     <%= yield %><br>
-    <%= link_to "All Hobbies", hobbies_path%><br>
-    <%= link_to "My Profile", User.find_by(username: session[:username]) %><br><br>
     <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'get'}) do %>
       <input type=submit value='logout'>
     <% end %>
