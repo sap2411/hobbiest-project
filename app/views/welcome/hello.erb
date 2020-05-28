@@ -2,3 +2,7 @@
 
 <h2>Look At All Our <%= link_to "Hobbies", '/hobbies' %></h2>
 <h2>Or, Search By <%= link_to "Category", '/categories' %></h2>
+
+<% if session[:admin] %>
+<%= link_to "Materials Edit", materials_path %>
+<% end %>

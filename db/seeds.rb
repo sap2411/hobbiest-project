@@ -17,6 +17,8 @@ Category.create(name: "Music")
 Category.create(name: "Arts and Crafts")
 Category.create(name: "Food and Beverage")
 
+User.create(username: "Steven", password: "password", password_confirmation: "password", admin: true)
+User.create(username: "David", password: "password", password_confirmation: "password", admin: true)
 
 fishing = Hobby.create(name: "Fishing", description: "Year round fun in practially any climate! All you need are these tools and a good fishing spot!", created_by: "Admin")
 

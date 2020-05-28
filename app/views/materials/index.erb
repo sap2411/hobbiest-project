@@ -1,0 +1,4 @@
+<% @materials.each do |m| %>
+<%= link_to m.name, m %>
+<%= button_to "Delete #{m.name}", material_path(m), method: :delete %><br>
+<% end %>
