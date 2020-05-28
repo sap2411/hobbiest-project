@@ -1,8 +1,9 @@
 class HobbyMaterialsController < ApplicationController
 
     def destroy
-        byebug
-        @hobby_material = HobbyMaterial.find_by(hoparams[:id])
+        @hobby_material = HobbyMaterial.find(params[:id])
+        @hobby = Hobby.find(@hobby_material.hobby_id)
         @hobby_material.destroy
+        redirect_to hobby_path(@hobby)
     end
 end
