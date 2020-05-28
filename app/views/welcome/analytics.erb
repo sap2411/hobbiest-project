@@ -1,0 +1,7 @@
+<h1>Your Analytics:</h1>
+<h2>Your Username <%= @user.username %><br><br>
+Your Hobbies <ul><% @user.hobbies.each do |h| %>
+<li><%= h.name %></li>
+<% end %></ul>
+Your Favorite Category 
+</h2>

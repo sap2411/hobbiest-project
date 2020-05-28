@@ -16,7 +16,23 @@ class Hobby < ApplicationRecord
         @name_array = Array.new
     end
 
-    def self.sorted_by_materials
+    def self.sorted
         self.all.sort_by {|hobby| hobby.materials.count}
+    end
+
+    def self.simplest_hobby
+        self.sorted.first.name
+    end
+
+    def self.most_complex_hobbie
+        self.sorted.last.name
+    end
+
+    def self.most_popular_hobby
+        all.max_by {|h| h.users.count}.name
+    end
+
+    def self.least_popular_hobby
+        all.min_by {|h| h.users.count}.name
     end
 end
