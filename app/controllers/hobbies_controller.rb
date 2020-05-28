@@ -20,23 +20,26 @@ class HobbiesController < ApplicationController
     end
     
     def new
-        @categories = @@categories
+        @categories = Category.all
         @hobby = Hobby.new
+        @materials = Material.all
+        3.times do
+            @hobby.materials.build
+        end
     end
 
     def create
-        params[:hobby][:username] = session[:username]
-        if !@@categories.include? params[:hobby][:category]
-            @@categories << params[:hobby][:category]
-        end
+        @new_materials = Array.new
+        params[:hobby][:created_by] = session[:username]
+        byebug
         @hobby = Hobby.create(hobby_params)
-        @hobby.materials.create(name: params[:materials][:name], url:"https://www.amazon.com/s?k=#{params[:materials][:name]}&ref=nb_sb_noss_2")
+        # @hobby.materials.create(name: params[:materials][:name], url:"https://www.amazon.com/s?k=#{params[:materials][:name]}&ref=nb_sb_noss_2")
         redirect_to @hobby
     end
 
     private
 
     def hobby_params
-        params.require(:hobby).permit(:name, :category, :description, :created_by, materials: [:name])
+        params.require(:hobby).permit(:name, :description, :created_by, materials_attributes:[:name, :url])
     end
 end
