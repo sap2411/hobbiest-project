@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     helper_method :current_user
-    # helper_method :require_login
     before_action :fetch_user
 
     def require_login
@@ -14,7 +13,7 @@ class ApplicationController < ActionController::Base
 
     def fetch_user
         @logged_in = logged_in?
-        if logged_in?
+        if logged_in? && !!User.find(current_user_id)
             @logged_in_user = User.find(current_user_id)
         else
             redirect_to login_path

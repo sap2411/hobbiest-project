@@ -1,9 +1,5 @@
 class HobbiesController < ApplicationController
-    # before_action :require_login
-
-    # So far I can only get updates to this array to persist through one reload of new.erb DK
-    @@categories = ["Test One", "Test Two", "Test Three"]
-
+   
     def index
         @hobbies = Hobby.all
     end
@@ -39,27 +35,26 @@ class HobbiesController < ApplicationController
         if params[:hobby][:material_ids]
             @hobby.add_existing_materials(params[:hobby][:material_ids])
         end
-        
         redirect_to @hobby
     end
 
-    def edit
-        @categories = Category.all
-        @hobby = Hobby.find(params[:id])
-        @materials = Material.all
-    end
+    # def edit
+    #     @categories = Category.all
+    #     @hobby = Hobby.find(params[:id])
+    #     @materials = Material.all
+    # end
 
-    def update
-        @hobby = Hobby.find(params[:id])
-        @hobby.update(hobby_params)
+    # def update
+    #     @hobby = Hobby.find(params[:id])
+    #     @hobby.update(hobby_params)
 
-        # Check for presence of materials_ids from checkboxes and associates them with new hobby object
-        # if params[:hobby][:material_ids]
-        #     @hobby.add_existing_materials(params[:hobby][:material_ids])
-        # end
+    #     # Check for presence of materials_ids from checkboxes and associates them with new hobby object
+    #     # if params[:hobby][:material_ids]
+    #     #     @hobby.add_existing_materials(params[:hobby][:material_ids])
+    #     # end
         
-        redirect_to @hobby
-    end
+    #     redirect_to @hobby
+    # end
     private
 
     def hobby_params
