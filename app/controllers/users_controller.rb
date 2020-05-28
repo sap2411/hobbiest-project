@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-    # before_action :require_login
     skip_before_action :fetch_user, only: [:new, :create]
     def show
         @user = User.find_by(username: session[:username])
@@ -20,7 +19,7 @@ class UsersController < ApplicationController
         end
     end
      
-      private
+    private
      
     def user_params
         params.require(:user).permit(:username, :password, :password_confirmation)
