@@ -18,9 +18,10 @@ class Category < ApplicationRecord
     def self.most_common_category
         array = self.analyize_categories
         if array[0][1] != array[1][1]
-            array[0][0]
+            ": #{array[0][0]}"
         else
             ans = array.map {|a| if a[1] == array[0][1] ; a[0] ; end}.compact
+            " - #{ans.count} Way Tie: #{ans.join(", ")}"
         end
         #or could just use self.all.max_by {|c| c.hobbies.count}
     end

@@ -51,7 +51,7 @@ class Hobby < ApplicationRecord
         self.sorted.first.name
     end
 
-    def self.most_complex_hobbie
+    def self.most_complex_hobby
         self.sorted.last.name
     end
 
@@ -61,5 +61,14 @@ class Hobby < ApplicationRecord
 
     def self.least_popular_hobby
         all.min_by {|h| h.users.count}.name
+    end
+
+    def self.update_creater( old_name, new_name)
+        outdated = your_creations(old_name)
+        outdated.each {|h| h.update(created_by: new_name)}
+    end
+
+    def self.your_creations(name)
+        Hobby.all.select {|h| h.created_by == name}
     end
 end
