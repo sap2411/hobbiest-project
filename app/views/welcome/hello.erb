@@ -1,8 +1,12 @@
-<h1>Hey there, <%= session[:username] %>!</h1>
-
+<%if session[:admin] %>
+<h1>Hey there Admin <%= session[:username] %>!</h1>
+<% else %>
+<h1>Hey there <%= session[:username] %>!</h1>
+<% end %>
 <h2>Look At All Our <%= link_to "Hobbies", '/hobbies' %></h2>
 <h2>Or, Search By <%= link_to "Category", '/categories' %></h2>
 
 <% if session[:admin] %>
-<%= link_to "Materials Edit", materials_path %>
+<h2><%= link_to "Materials Edit", materials_path %><br>
+<%= link_to "Analytics", analytics_path %></h2>
 <% end %>

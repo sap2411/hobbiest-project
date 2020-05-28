@@ -9,4 +9,9 @@ class WelcomeController < ApplicationController
         @materials = Material.all
         @user = User.find_by(username: session[:username])
     end
+
+    def admin
+        session[:admin] = true
+        redirect_to '/'
+    end
 end

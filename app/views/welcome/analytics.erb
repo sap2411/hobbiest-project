@@ -1,7 +1,27 @@
-<h1>Your Analytics:</h1>
-<h2>Your Username <%= @user.username %><br><br>
-Your Hobbies <ul><% @user.hobbies.each do |h| %>
+<h1>Analytics:</h1>
+<h2>Your Username: <%= @user.username %><br>
+Are You Really an Admin? <%= @user.admin? %><br>
+Your Selected Hobbies: 
+<% if @user.hobbies.count > 0 %>
+<ul><% @user.hobbies.each do |h| %>
 <li><%= h.name %></li>
 <% end %></ul>
-Your Favorite Category 
+<% else %>
+None<br>
+<% end %>
+Hobbies You Created: 
+<% if Hobby.your_creations(@user.username).count > 0%>
+<ul><% Hobby.your_creations(@user.username).each do |h| %>
+<li><%= h.name %></li>
+<% end %></ul>
+<% else %>
+None<br>
+<% end %>
+Number of Users: <%= @users.count %><br>
+Number of all Hobbies: <%= @hobbies.count %><br>
+Number of all Materials: <%= @materials.count %><br>
+Number of all Hobby Categories: <%= @categories.count %><br>
+Hobby with the Least Materials: <%= Hobby.simplest_hobby %><br>
+Most Popular Hobby: <%= Hobby.most_popular_hobby %><br>
+Most Common Category<%= Category.most_common_category %><br>
 </h2>

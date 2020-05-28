@@ -20,6 +20,10 @@ class User < ApplicationRecord
         self.all.max_by {|u| u.hobbies.count}.username
     end
 
+    def admin?
+        admin ? "Yes!" : "Nope, Cheater"
+    end
+
     # def favorite_catagory
     #     self.hobbies.
     # end

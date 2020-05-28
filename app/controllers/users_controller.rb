@@ -18,6 +18,25 @@ class UsersController < ApplicationController
             redirect_to new_user_path
         end
     end
+
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update
+        @user = User.find(params[:id])
+        old_name = @user.username
+        @user.update(user_params)
+        if @user.valid?
+            new_name = @user.username
+            Hobby.update_creater(old_name, new_name)
+            redirect_to '/logout'
+            flash[:errors] = "Please Log In with your new Username"
+        else
+            flash[:errors] = "That submission was invalid."
+            redirect_to edit_user_path(@user)
+        end
+    end
      
     private
      
