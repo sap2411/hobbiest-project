@@ -8,10 +8,12 @@
     </div>
     <h2>Materials Needed:<br><br>
     <ul><%  @hobby.materials.each do |m| %>
-            <li><%= link_to m.name, m.url, target: :_blank %></li><br>
+            <li><%= "#{m.name}:"%> Avalible at:<%= link_to "Amazon", m.url, target: :_blank %>,
+                <%= link_to "Ebay", "https://www.ebay.com/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw=#{m.name}&_sacat=0&LH_TitleDesc=0&_osacat=0&_odkw=#{m.name}", target: :_blank %>, and 
+                <%= link_to "Walmart", "https://www.walmart.com/search/?query=#{m.name}", target: :_blank %></li>
             <% if session[:username] == @hobby.created_by || session[:admin] %>
                 <%= button_to "Remove #{m.name}", hobby_material_path(@hobby.hobby_materials.find_by(material_id: m.id).id), method: :delete %>
-                <% end %>
+                <% end %><br>
         <% end %></ul>
     </h2>
     <% if @hobby.created_by && @hobby.created_by != "Admin"  %>

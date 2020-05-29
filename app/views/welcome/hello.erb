@@ -7,6 +7,8 @@
 <h2>Or, Search By <%= link_to "Category", '/categories' %></h2>
 
 <% if session[:admin] %>
-<h2><%= link_to "Materials Edit", materials_path %><br>
-<%= link_to "Analytics", analytics_path %></h2>
+<h2>Admin Privileges:<br>
+<%= link_to "Materials Edit", materials_path %><br>
+<%= link_to "Analytics", analytics_path %><br>
+<%= link_to "User Management", users_path %></h2>
 <% end %>

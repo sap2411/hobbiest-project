@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   get '/analytics' => 'welcome#analytics'
   get '/↑↑↓↓←→←→BA' => 'welcome#admin'
+  patch '/grant_admin/:id' => 'users#grant_admin', as: "grant_admin"
 end

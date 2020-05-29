@@ -1,0 +1,6 @@
+<h1>All Users</h1>
+<ul><% @users.each do |u| %>
+    <li><%= u.username %>
+    <%= button_to "Grant Admin Privileges", grant_admin_path(u.id), method: :patch, :params => {user_id: u.id} %>
+    <%= button_to "Delete User", user_path(u.id), method: :delete, :params => {user_id: u.id} %></li><br>
+<% end %></ul>
