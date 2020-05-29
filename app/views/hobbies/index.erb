@@ -1,4 +1,18 @@
-<h1>Hobbies:</h1>
+<!--<h1>Hobbies:</h1>
 <h2><% @hobbies.each do |f| %>
         <%=link_to f.name, f%><br><br>
-<% end %></h2>
+<% end %></h2>-->
+
+<h1>Hobbies:</h1>
+<div class="hobbies">
+   <% @hobbies.each do |h| %>
+   <div class="hobby">
+      <div class="image">
+         <img src="<%= h.categories.first.image %>" width="500" height="300" alt="photo" />
+      </div>
+        <div class="info">
+         <%= link_to h.name, h %> <% h.categories.each do |c| %> <%= c.name %> |<% end %>
+      </div>
+   </div>
+   <% end %>
+</div>
