@@ -14,4 +14,16 @@ class MaterialsController < ApplicationController
         @material.destroy
         redirect_to materials_path
     end
+
+    def buy_local
+        @zip_code = ""
+        @material = Material.find(params[:id])
+    end
+
+    def create_results
+        @material = Material.find(params[:id])
+        @zip_code = params[:@zip_code]
+        @google_query = @material.googlefy(@material.name, @zip_code)
+        redirect_to @google_query
+    end
 end

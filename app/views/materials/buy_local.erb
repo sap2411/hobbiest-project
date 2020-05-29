@@ -1,0 +1,13 @@
+    <div class="container text-center">
+    <h1><b>Find <%= @material.name.pluralize %> Locally!</b></h1>
+    <br>
+    <p style="font-size:150%;">Thanks for supporting the economy in YOUR community.</p>
+    <p style="font-size:250%;"><b></b> </b></p>
+
+    <%= form_tag ({controller: 'materials', action: 'create_results', method: 'post'}) do %>
+    Enter your ZIP code:<input name=@zip_code><br><br>
+    <input type=submit value='Get Results' class="btn btn-primary btn-sm">
+    <% end %>
+
+    <p style="font-size:200%;"></p>
+    </div>

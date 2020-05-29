@@ -1,14 +1,20 @@
-<%if session[:admin] %>
-<h1 class ="test-center">Hey there Admin <%= session[:username] %>!</h1>
-<% else %>
-<h1>Hey there <%= session[:username] %>!</h1>
-<% end %>
-<h2>Look At All Our <%= link_to "Hobbies", '/hobbies' %></h2>
-<h2>Or, Search By <%= link_to "Category", '/categories' %></h2>
-
-<% if session[:admin] %>
-<h2>Admin Privileges:<br>
-<%= link_to "Materials Edit", materials_path %><br>
-<%= link_to "Analytics", analytics_path %><br>
-<%= link_to "User Management", users_path %></h2>
-<% end %>
+ <div class="container text-center">
+    <%if session[:admin] %>
+    <h1 class ="test-center">Hey there Admin <%= session[:username] %>!</h1>
+    <% else %>
+    <h1>Hey there <%= session[:username] %>!</h1>
+    <% end %>
+    <br><br><br>
+</div>
+    <h3>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; Look At All Our <%= link_to "Hobbies", '/hobbies' %><img src="/arrow-3d-left.png" width=100px alt="blue arrow points at words"></h3>
+    <h3>&emsp; &emsp; &emsp; <img src="/arrow-curved-right.png" width=100px alt="arrow pointing at words">Or Search By <%= link_to "Category", '/categories' %></h3>
+    <br><br>
+    <div class="container text-center">
+        <% if session[:admin] %>
+        <h2>Admin Privileges:<br>
+        <%= link_to "Materials Edit", materials_path %><br>
+        <%= link_to "Analytics", analytics_path %><br>
+        <%= link_to "User Management", users_path %></h2>
+    <% end %>
+    </div>
+</div>
