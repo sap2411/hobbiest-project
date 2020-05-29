@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
         if logged_in? && !!User.find(current_user_id)
             @logged_in_user = User.find(current_user_id)
         else
+            flash[:errors] = "You must log in to view that page."
             redirect_to login_path
         end
     end

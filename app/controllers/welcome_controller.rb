@@ -1,5 +1,10 @@
 class WelcomeController < ApplicationController
+    skip_before_action :fetch_user, only: [:hello]
+
     def hello
+        if !session[:username]
+            redirect_to login_path
+        end
     end
 
     def analytics

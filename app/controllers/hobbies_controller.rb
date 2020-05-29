@@ -1,5 +1,5 @@
 class HobbiesController < ApplicationController
-   
+    skip_before_action :fetch_user, only: [:index]
     def index
         @hobbies = Hobby.all
     end

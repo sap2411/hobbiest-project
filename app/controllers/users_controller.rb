@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     end
 
     def new
-        render :layout => false
+        
     end
 
     def create

@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     skip_before_action :fetch_user, only: [:new, :create]
     def new
-        render :layout => false
+        
     end
 
     def create
