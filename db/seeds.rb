@@ -13,7 +13,7 @@ Hobby.destroy_all
 Material.destroy_all
 
 Category.create(name: "Outdoor", image: "/outdoor.jpeg")
-Category.create(name: "Music", image: "/music.jpeg")
+Category.create(name: "Music", image: "/music.jpg")
 Category.create(name: "Arts and Crafts", image: "/arts_and_crafts.jpg")
 Category.create(name: "Food and Beverage", image: "/food_and_beverage.jpg")
 
