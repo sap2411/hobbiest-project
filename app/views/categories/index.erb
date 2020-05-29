@@ -1,6 +1,13 @@
 <h1>Hobby Categories:</h1>
-<h2><ul><% @categories.each do |c| %>
-<li><%= link_to c.name, c %> <div class="col-lg-auto">
-            <img src="<%= c.image %>" width="500" alt="outdoors photo">
-         </div></li>
-<% end %></ul></h2>
+<div class="categories">
+   <% @categories.each do |c| %>
+   <div class="category">
+      <div class="image">
+         <img src="<%= c.image %>" width="500" height="300" alt="photo" />
+      </div>
+      <div class="info">
+         <%= link_to c.name, c %> <% c.hobbies.each do |h| %> <%= h.name %> |<% end %>
+      </div>
+   </div>
+   <% end %>
+</div>
