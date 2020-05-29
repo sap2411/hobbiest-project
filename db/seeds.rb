@@ -24,8 +24,7 @@ User.create(username: "Soundarya", password: "asd", password_confirmation: "asd"
 User.create(username: "BirdWatchingLover9000", password: "asd", password_confirmation: "asd", admin: false)
 User.create(username: "NotARealAdmin", password: "asd", password_confirmation: "asd", admin: false)
 User.create(username: "HobbyBoy1234", password: "asd", password_confirmation: "asd", admin: false)
-
-
+User.create(username: "BernadoodleLover295", password: "Imastar", password_confirmation: "Imastar", admin: false)
 
 
 fishing = Hobby.create(name: "Fishing", description: "Year round fun in practially any climate! All you need are these tools and a good fishing spot!", created_by: "Steven")
@@ -134,4 +133,35 @@ HobbyMaterial.create(material_id: 32, hobby_id: 8)
 
 CategoryHobby.create(category_id: 2, hobby_id: 8)
 
+Category.create(name: "Lifestyle")
 
+Hobby.create(name: "Yoga", description: "Physical exercise that induces full body relaxation.", created_by: "BernadoodleLover295")
+Material.create(name: "Yoga Mat", url: "https://www.amazon.com/s?k=yoga+mat&ref=nb_sb_noss_2")
+Material.create(name: "Leggings", url: "https://www.amazon.com/s?k=leggings&ref=nb_sb_noss_2")
+Material.create(name: "Foam Yoga Blocks", url: "https://www.amazon.com/s?k=foam+yoga+blocks&ref=nb_sb_noss_2")
+HobbyMaterial.create(material_id: 33, hobby_id: 9)
+HobbyMaterial.create(material_id: 34, hobby_id: 9)
+HobbyMaterial.create(material_id: 35, hobby_id: 9)
+
+CategoryHobby.create(category_id: 5, hobby_id: 9)
+
+Hobby.create(name: "Barbequing", description: "A fun and smokey way to get cooking outside!", created_by: "David")
+Material.create(name: "Grill", url: "https://www.amazon.com/s?k=grill&ref=nb_sb_noss_2")
+Material.create(name: "Grill Tool Set", url: "https://www.amazon.com/s?k=grill+tool+set&ref=nb_sb_noss_2")
+Material.create(name: "Grill Brush", url: "https://www.amazon.com/s?k=grill+brush&ref=nb_sb_noss_2")
+HobbyMaterial.create(material_id: 36, hobby_id: 10)
+HobbyMaterial.create(material_id: 37, hobby_id: 10)
+HobbyMaterial.create(material_id: 38, hobby_id: 10)
+
+CategoryHobby.create(category_id: 1, hobby_id: 10)
+CategoryHobby.create(category_id: 4, hobby_id: 10)
+
+Hobby.create(name: "Skiing", description: "Rush down snowy mountains and take in beautiful views!", created_by: "David")
+Material.create(name: "Skis", url: "https://www.amazon.com/s?k=skis&ref=nb_sb_noss_2")
+Material.create(name: "Ski Poles", url: "https://www.amazon.com/s?k=ski+poles&ref=nb_sb_noss_2")
+Material.create(name: "Ski Boots", url: "https://www.amazon.com/s?k=ski+boots&ref=nb_sb_noss_2")
+HobbyMaterial.create(material_id: 39, hobby_id: 11)
+HobbyMaterial.create(material_id: 40, hobby_id: 11)
+HobbyMaterial.create(material_id: 41, hobby_id: 11)
+
+CategoryHobby.create(category_id: 1, hobby_id: 11)
