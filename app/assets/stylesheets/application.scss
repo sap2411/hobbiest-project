@@ -88,10 +88,22 @@ textarea {
 }
 
 .cat-show img {
-  object-fit: cover;
+  object-fit: cover, center;
   width: 100%;
-  height: 250px;
-  padding-right: 20px;
+  height: 400px;
+}
+
+.ino {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  color: var(--white);
+  background: var(--transparent-black);
+  padding: 10px;
+  width: calc(73% - 20px);
+  height: 70px;
+  display: flex;
+  flex-direction: column;
 }
 
 .cat-show .description {
@@ -133,3 +145,4 @@ textarea {
   display: flex;
   flex-direction: column;
 }
+
