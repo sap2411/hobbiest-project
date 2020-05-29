@@ -1,12 +1,12 @@
 
     <h1><%= @hobby.name %></h1>
     <h2><%= @hobby.description %>
-    <h2>Category: <% @hobby.categories.each do |c| %> 
-    <%= link_to c.name, c %>,  
+    <h2>Categories |<% @hobby.categories.each do |c| %> 
+    <%= link_to c.name, c %> |  
     <% end %></h2>
     <h2>Materials Needed:<br><br>
     <ul><%  @hobby.materials.each do |m| %>
-            <li><%= "#{m.name}:"%> Avalible at:<%= link_to "Amazon", m.url, target: :_blank %>,
+            <li><%= "#{m.name}:"%> Avalible at: <%= link_to "Amazon", m.url, target: :_blank %>,
                 <%= link_to "Ebay", "https://www.ebay.com/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw=#{m.name}&_sacat=0&LH_TitleDesc=0&_osacat=0&_odkw=#{m.name}", target: :_blank %>, and 
                 <%= link_to "Walmart", "https://www.walmart.com/search/?query=#{m.name}", target: :_blank %></li>
             <% if session[:username] == @hobby.created_by || session[:admin] %>
