@@ -1,27 +1,43 @@
 
     <div class="container text-center">
-    <h1><%= @hobby.name %></h1>
-    <h2><%= @hobby.description %>
-    <h2>Category: <% @hobby.categories.each do |c| %> 
-    <%= link_to c.name, c %>,  
+    <h1><b><%= @hobby.name %></b></h1>
+    <br>
+    <p style="font-size:150%;"><%= @hobby.description %></p>
+    <p style="font-size:250%;"><b>Category: <% @hobby.categories.each do |c| %></b></p>
+    <p style="font-size:200%;"><%= link_to c.name, c %></p>
     <% end %></h2>
     </div>
-    <h2>Materials Needed:<br><br>
+</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-auto" style="background-color: blue;">
+        <!--column for blue stripe--> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </div>
+            
+            <div class="col-xl-auto">
+
+    <h2>Materials Needed:</h2><br><br>
     <ul><%  @hobby.materials.each do |m| %>
-            <li><%= "#{m.name}:"%> Avalible at:<%= link_to "Amazon", m.url, target: :_blank %>,
+            <li><p style="font-size:150%;"><b><%= "#{m.name}:"%></b> <br>Avalible at:<%= link_to "Amazon", m.url, target: :_blank %>,
                 <%= link_to "Ebay", "https://www.ebay.com/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw=#{m.name}&_sacat=0&LH_TitleDesc=0&_osacat=0&_odkw=#{m.name}", target: :_blank %>, and 
-                <%= link_to "Walmart", "https://www.walmart.com/search/?query=#{m.name}", target: :_blank %></li>
+                <%= link_to "Walmart", "https://www.walmart.com/search/?query=#{m.name}", target: :_blank %></p></li>
             <% if session[:username] == @hobby.created_by || session[:admin] %>
-                <%= button_to "Remove #{m.name}", hobby_material_path(@hobby.hobby_materials.find_by(material_id: m.id).id), method: :delete %>
+                <%= button_to "Remove #{m.name}", hobby_material_path(@hobby.hobby_materials.find_by(material_id: m.id).id), class: "btn btn-primary btn-sm", method: :delete %>
                 <% end %><br>
         <% end %></ul>
-    </h2>
+
+            </div>
+        <div class="col-lg-auto">
+            <img src="<%= @hobby.categories.first.image %>" width="500" alt="outdoors photo">
+         </div>
+    </div>
+
     <% if @hobby.created_by && @hobby.created_by != "Admin"  %>
         <h4>Contributed by: <%= @hobby.created_by %></h4>
     <% end  %>
 
     <% if session[:username] == @hobby.created_by || session[:admin] %>
-        <div><%= button_to "Delete Hobby", hobby_path(@hobby), method: :delete %></div>
+        <div><%= button_to "Delete Hobby", hobby_path(@hobby), class: "btn btn-primary btn-sm", method: :delete %></div>
     <% end %>
-    <button type="button" class="btn btn-outline-primary btn-lg"><%= button_to "Save Hobby", hobby_path(@hobby), method: :patch %></button>
-    </div>
+    <br>
+    <%= button_to "Save Hobby", hobby_path(@hobby), class: "btn btn-primary btn-sm", method: :patch %>

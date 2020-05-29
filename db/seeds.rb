@@ -12,10 +12,10 @@ Category.destroy_all
 Hobby.destroy_all
 Material.destroy_all
 
-Category.create(name: "Outdoor")
-Category.create(name: "Music")
-Category.create(name: "Arts and Crafts")
-Category.create(name: "Food and Beverage")
+Category.create(name: "Outdoor", image: "/outdoor.jpeg")
+Category.create(name: "Music", image: "/music.jpeg")
+Category.create(name: "Arts and Crafts", image: "/arts_and_crafts.jpg")
+Category.create(name: "Food and Beverage", image: "/food_and_beverage.jpg")
 
 User.create(username: "Steven", password: "password", password_confirmation: "password", admin: true)
 User.create(username: "David", password: "password", password_confirmation: "password", admin: true)
