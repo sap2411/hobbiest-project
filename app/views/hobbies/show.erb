@@ -1,17 +1,12 @@
 
 
-    <div class="container text-center">
-    <h1><b><%= @hobby.name %></b></h1>
+    <div class="cat-show">
+<img src="<%= @hobby.categories.first.image  %>" width="500" height="300" alt="outdoors photo" />
+<h1><b><%= @hobby.name %></b></h1></div>
     <br>
-    <p style="font-size:150%;"><%= @hobby.description %></p>
-    <p style="font-size:250%;"><b>Category: <% @hobby.categories.each do |c| %></b></p>
-    <p style="font-size:200%;"><%= link_to c.name, c %></p>
+    <p style="font-size:150%;"><%= @hobby.description %></p><br>
+    <p style="font-size:200%;"><b>Category: <% @hobby.categories.each do |c| %></b> <%= link_to c.name, c %></p>
     <% end %></h2>
-    <div class="col-lg-auto">
-            <img src="<%= @hobby.categories.first.image %>" width="500" alt="outdoors photo">
-         </div>
-    </div>
-</div>
     <div class="container">
         <div class="row">
             <div class="col-md-auto" style="background-color: blue;">
@@ -22,13 +17,13 @@
 
     <h2>Materials Needed:</h2><br><br>
     <ul><%  @hobby.materials.each do |m| %>
-            <li><p style="font-size:150%;"><b><%= "#{m.name}:"%></b> <br>Avalible at: <%= link_to "Amazon", m.url, target: :_blank %>,
+            <li><p style="font-size:150%;"><b><%= "#{m.name}:"%><br><br> Avalible at: <%= link_to "Amazon", m.url, target: :_blank %>,
                 <%= link_to "Ebay", "https://www.ebay.com/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw=#{m.name}&_sacat=0&LH_TitleDesc=0&_osacat=0&_odkw=#{m.name}", target: :_blank %>, and 
                 <%= link_to "Walmart", "https://www.walmart.com/search/?query=#{m.name}", target: :_blank %>
-                or <%= link_to "BUY LOCAL!", buy_local_path(m.id), target: :_blank %></p></li><br>
+                or <%= link_to "BUY LOCAL!", buy_local_path(m.id), target: :_blank %></p></li>
             <% if session[:username] == @hobby.created_by || session[:admin] %>
                 <%= button_to "Remove #{m.name}", hobby_material_path(@hobby.hobby_materials.find_by(material_id: m.id).id), class: "btn btn-primary btn-sm", method: :delete %>
-                <% end %><br>
+                <% end %><br><br>
         <% end %></ul>
 
             </div>

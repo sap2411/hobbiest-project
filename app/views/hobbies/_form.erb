@@ -2,7 +2,7 @@
 
 <%= form_for @hobby do |f| %>
 
-<%= f.label :name %><br>
+<%= f.label "Hobby Name:" %><br>
 <%= f.text_field :name %><br><br>
 
 <%= f.label :category_ids %><br>
@@ -18,7 +18,7 @@
 <% end %> -->
 
     <%= f.fields_for :materials do |ff|%>
-        <br><%= ff.label :name %>
+        <br><%= ff.label "Material Required" %>
         <%= ff.text_field :name %><br><br>
     <% end %>
 

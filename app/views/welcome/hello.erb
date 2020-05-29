@@ -6,10 +6,11 @@
     <% end %>
     <br><br><br>
 </div>
-    <h3>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; Look At All Our <%= link_to "Hobbies", '/hobbies' %><img src="/arrow-3d-left.png" width=100px alt="blue arrow points at words"></h3>
-    <h3>&emsp; &emsp; &emsp; <img src="/arrow-curved-right.png" width=100px alt="arrow pointing at words">Or Search By <%= link_to "Category", '/categories' %></h3>
+<div class="container text-center">
+    <h3>Look At All Our <%= link_to "Hobbies", '/hobbies' %></h3>
+    <h3>Or Search By <%= link_to "Category", '/categories' %></h3>
     <br><br>
-    <div class="container text-center">
+    
         <% if session[:admin] %>
         <h2>Admin Privileges:<br>
         <%= link_to "Materials Edit", materials_path %><br>
