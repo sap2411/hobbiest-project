@@ -99,3 +99,37 @@ textarea {
   line-height: 30px;
 }
 
+.hobbies {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 80px;
+  margin: 20px 0;
+  grid-auto-rows: 250px;
+
+  
+}
+
+.hobbies .hobby {
+  position: relative;
+  width: 100%;
+}
+
+.hobbies .hobby .image {
+  width: 100%;
+  height: 100%;
+}
+
+
+.hobbies .hobby .info {
+  position: absolute;
+  bottom: 0.5;
+  left: 0;
+  color: var(--white);
+  background: var(--transparent-black);
+  padding: 10px;
+  width: calc(54.6% - 20px);
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+}
