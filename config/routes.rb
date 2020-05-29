@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   get '/analytics' => 'welcome#analytics'
   get '/↑↑↓↓←→←→BA' => 'welcome#admin'
   patch '/grant_admin/:id' => 'users#grant_admin', as: "grant_admin"
+  get '/materials/:id/buylocal' => 'materials#buy_local', as: 'buy_local'
+  post 'materials/:id/create_results' => 'materials#create_results', as: 'google_maps'
+
 end
