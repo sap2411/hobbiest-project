@@ -133,7 +133,7 @@ HobbyMaterial.create(material_id: 32, hobby_id: 8)
 
 CategoryHobby.create(category_id: 2, hobby_id: 8)
 
-Category.create(name: "Lifestyle")
+Category.create(name: "Lifestyle", image: "/lifestyle.jpg")
 
 Hobby.create(name: "Yoga", description: "Physical exercise that induces full body relaxation.", created_by: "BernadoodleLover295")
 Material.create(name: "Yoga Mat", url: "https://www.amazon.com/s?k=yoga+mat&ref=nb_sb_noss_2")

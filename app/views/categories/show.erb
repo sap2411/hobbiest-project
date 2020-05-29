@@ -1,4 +1,7 @@
 <h1>Category: <%= @category.name %></h1>
+<div class="col-lg-auto">
+        <img src="<%= @category.image %>" width="500" alt="outdoors photo">
+</div>
 <h2>Hobbies:<br>
 <ul><% @category.hobbies.each do |h| %>
         <li><%= link_to h.name, h %></li>

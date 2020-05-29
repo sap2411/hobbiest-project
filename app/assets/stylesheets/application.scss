@@ -14,3 +14,17 @@
  
  /* Custom bootstrap variables must be set or imported *before* bootstrap. */
  @import "bootstrap";
+ body, html {
+    height: 100%;
+  }
+  .bg {
+    /* The image used */
+    background-image: url('images/outdoor.jpeg');
+    /* Half height */
+    height: 50%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

@@ -1,4 +1,6 @@
 <h1>Hobby Categories:</h1>
 <h2><ul><% @categories.each do |c| %>
-<li><%= link_to c.name, c %></li>
+<li><%= link_to c.name, c %> <div class="col-lg-auto">
+            <img src="<%= c.image %>" width="500" alt="outdoors photo">
+         </div></li>
 <% end %></ul></h2>

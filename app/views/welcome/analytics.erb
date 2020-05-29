@@ -1,6 +1,6 @@
 <h1>Analytics:</h1>
 <h2>Your Username: <%= @user.username %><br>
-Are You Really an Admin? <%= @user.admin? %><br>
+Are You an Admin? <%= @user.admin? %><br>
 Your Selected Hobbies: 
 <% if @user.hobbies.count > 0 %>
 <ul><% @user.hobbies.each do |h| %>
