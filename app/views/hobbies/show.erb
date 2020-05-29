@@ -1,9 +1,11 @@
 
+    <div class="container text-center">
     <h1><%= @hobby.name %></h1>
     <h2><%= @hobby.description %>
     <h2>Category: <% @hobby.categories.each do |c| %> 
     <%= link_to c.name, c %>,  
     <% end %></h2>
+    </div>
     <h2>Materials Needed:<br><br>
     <ul><%  @hobby.materials.each do |m| %>
             <li><%= link_to m.name, m.url, target: :_blank %></li><br>
@@ -17,6 +19,7 @@
     <% end  %>
 
     <% if session[:username] == @hobby.created_by || session[:admin] %>
-        <%= button_to "Delete Hobby", hobby_path(@hobby), method: :delete %>
+        <div><%= button_to "Delete Hobby", hobby_path(@hobby), method: :delete %></div>
     <% end %>
-    <%= button_to "Save Hobby", hobby_path(@hobby), method: :patch %>
+    <button type="button" class="btn btn-outline-primary btn-lg"><%= button_to "Save Hobby", hobby_path(@hobby), method: :patch %></button>
+    </div>
